@@ -34,18 +34,36 @@ class ViewController: UIViewController {
                         if error == nil{
                             print("Authentication successfull")
                             print(FIRAuth.auth()?.currentUser?.uid as! String)
+                            //Go to the HomeViewController if the login is sucessful
+                            let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
+                            self.present(vc!, animated: true, completion: nil)
                         }
                         else{
                             print("Authentication failed")
+                            //to initiate alert if login is unsuccesfull
+                            let alertController = UIAlertController(title: "Failed!", message: "Authentication Failed!", preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            self.present(alertController, animated: true, completion: nil)
                         }
                     }
                 }
                 else{
                     print("Authentication Failed")
+                    //to initiate alert if login is unsuccesfull
+                    let alertController = UIAlertController(title: "Failed!", message: "Authentication Failed!", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
                 }
             }
             else{
                 print("Authentication Failed")
+                //to initiate alert if login is unsuccesfull
+                let alertController = UIAlertController(title: "Failed!", message: "Authentication Failed!", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
             }
         }
     }
@@ -60,8 +78,8 @@ class ViewController: UIViewController {
                 if x["code"] as! Int == 0{
                     print("Sign Up Success")
                 }
-                if x["code"] as! Int == 1{
-                    print("User Already Signed Up!")
+                else if x["code"] as! Int == 1{
+                    print("User Already Signed Up or Invalid VIT credentials!")
                 }
                 else{
                     print("Sign Up Failed")
