@@ -20,6 +20,7 @@
 		956F2E981F9B8A8000DDF990 /* RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E971F9B8A8000DDF990 /* RippleEffect.swift */; };
 		956F2E9A1F9B9C7800DDF990 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */; };
 		956F2E9C1F9B9C8F00DDF990 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E9B1F9B9C8F00DDF990 /* HistoryTableViewCell.swift */; };
+		956F2E9E1F9BB24800DDF990 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E9D1F9BB24800DDF990 /* Constant.swift */; };
 		B0775DE63C616FAF562D9888 /* Pods_E_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975ADD6B2CD096D5484B782F /* Pods_E_.framework */; };
 /* End PBXBuildFile section */
 
@@ -41,6 +42,7 @@
 		956F2E971F9B8A8000DDF990 /* RippleEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
 		956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		956F2E9B1F9B9C8F00DDF990 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		956F2E9D1F9BB24800DDF990 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		975ADD6B2CD096D5484B782F /* Pods_E_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -97,10 +99,10 @@
 				956F2E771F9A873600DDF990 /* AppDelegate.swift */,
 				956F2E971F9B8A8000DDF990 /* RippleEffect.swift */,
 				956F2E791F9A873600DDF990 /* ViewController.swift */,
-				956F2E7B1F9A873600DDF990 /* Main.storyboard */,
-				956F2E8B1F9A89B900DDF990 /* GoogleService-Info.plist */,
 				956F2E7E1F9A873600DDF990 /* Assets.xcassets */,
 				956F2E801F9A873600DDF990 /* LaunchScreen.storyboard */,
+				956F2E7B1F9A873600DDF990 /* Main.storyboard */,
+				956F2E8B1F9A89B900DDF990 /* GoogleService-Info.plist */,
 				956F2E831F9A873600DDF990 /* Info.plist */,
 				956F2E8F1F9B4DBD00DDF990 /* PageViewController.swift */,
 				956F2E911F9B557A00DDF990 /* cardViewController.swift */,
@@ -108,6 +110,7 @@
 				956F2E951F9B5D6100DDF990 /* componentsTableViewCell.swift */,
 				956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */,
 				956F2E9B1F9B9C8F00DDF990 /* HistoryTableViewCell.swift */,
+				956F2E9D1F9BB24800DDF990 /* Constant.swift */,
 			);
 			path = "E+";
 			sourceTree = "<group>";
@@ -226,12 +229,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-E+/Pods-E+-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
@@ -254,6 +259,7 @@
 				956F2E941F9B558400DDF990 /* componentsViewController.swift in Sources */,
 				956F2E981F9B8A8000DDF990 /* RippleEffect.swift in Sources */,
 				956F2E901F9B4DBD00DDF990 /* PageViewController.swift in Sources */,
+				956F2E9E1F9BB24800DDF990 /* Constant.swift in Sources */,
 				956F2E7A1F9A873600DDF990 /* ViewController.swift in Sources */,
 				956F2E781F9A873600DDF990 /* AppDelegate.swift in Sources */,
 			);
