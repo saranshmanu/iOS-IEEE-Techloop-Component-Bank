@@ -12,7 +12,6 @@
 		956F2E7D1F9A873600DDF990 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956F2E7B1F9A873600DDF990 /* Main.storyboard */; };
 		956F2E7F1F9A873600DDF990 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 956F2E7E1F9A873600DDF990 /* Assets.xcassets */; };
 		956F2E821F9A873600DDF990 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 956F2E801F9A873600DDF990 /* LaunchScreen.storyboard */; };
-		956F2E8C1F9A89B900DDF990 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 956F2E8B1F9A89B900DDF990 /* GoogleService-Info.plist */; };
 		956F2E901F9B4DBD00DDF990 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E8F1F9B4DBD00DDF990 /* PageViewController.swift */; };
 		956F2E921F9B557A00DDF990 /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E911F9B557A00DDF990 /* cardViewController.swift */; };
 		956F2E941F9B558400DDF990 /* componentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E931F9B558400DDF990 /* componentsViewController.swift */; };
@@ -21,6 +20,9 @@
 		956F2E9A1F9B9C7800DDF990 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */; };
 		956F2E9C1F9B9C8F00DDF990 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E9B1F9B9C8F00DDF990 /* HistoryTableViewCell.swift */; };
 		956F2E9E1F9BB24800DDF990 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 956F2E9D1F9BB24800DDF990 /* Constant.swift */; };
+		95907BB11FF2D1190067ED4A /* issuedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95907BB01FF2D1190067ED4A /* issuedTableViewCell.swift */; };
+		95907BB31FF39CEA0067ED4A /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95907BB21FF39CEA0067ED4A /* RegisterViewController.swift */; };
+		95B49C411F9D0C81009105BF /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95B49C401F9D0C81009105BF /* Info.plist */; };
 		B0775DE63C616FAF562D9888 /* Pods_E_.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 975ADD6B2CD096D5484B782F /* Pods_E_.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +35,6 @@
 		956F2E7C1F9A873600DDF990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		956F2E7E1F9A873600DDF990 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		956F2E811F9A873600DDF990 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		956F2E831F9A873600DDF990 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		956F2E8B1F9A89B900DDF990 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		956F2E8F1F9B4DBD00DDF990 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		956F2E911F9B557A00DDF990 /* cardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardViewController.swift; sourceTree = "<group>"; };
 		956F2E931F9B558400DDF990 /* componentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = componentsViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +43,9 @@
 		956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
 		956F2E9B1F9B9C8F00DDF990 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
 		956F2E9D1F9BB24800DDF990 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		95907BB01FF2D1190067ED4A /* issuedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = issuedTableViewCell.swift; sourceTree = "<group>"; };
+		95907BB21FF39CEA0067ED4A /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		95B49C401F9D0C81009105BF /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		975ADD6B2CD096D5484B782F /* Pods_E_.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -99,18 +102,19 @@
 				956F2E771F9A873600DDF990 /* AppDelegate.swift */,
 				956F2E971F9B8A8000DDF990 /* RippleEffect.swift */,
 				956F2E791F9A873600DDF990 /* ViewController.swift */,
+				956F2E8F1F9B4DBD00DDF990 /* PageViewController.swift */,
+				956F2E931F9B558400DDF990 /* componentsViewController.swift */,
+				956F2E951F9B5D6100DDF990 /* componentsTableViewCell.swift */,
+				956F2E9D1F9BB24800DDF990 /* Constant.swift */,
+				956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */,
 				956F2E7E1F9A873600DDF990 /* Assets.xcassets */,
 				956F2E801F9A873600DDF990 /* LaunchScreen.storyboard */,
 				956F2E7B1F9A873600DDF990 /* Main.storyboard */,
-				956F2E8B1F9A89B900DDF990 /* GoogleService-Info.plist */,
-				956F2E831F9A873600DDF990 /* Info.plist */,
-				956F2E8F1F9B4DBD00DDF990 /* PageViewController.swift */,
+				95B49C401F9D0C81009105BF /* Info.plist */,
 				956F2E911F9B557A00DDF990 /* cardViewController.swift */,
-				956F2E931F9B558400DDF990 /* componentsViewController.swift */,
-				956F2E951F9B5D6100DDF990 /* componentsTableViewCell.swift */,
-				956F2E991F9B9C7800DDF990 /* InventoryTableViewCell.swift */,
 				956F2E9B1F9B9C8F00DDF990 /* HistoryTableViewCell.swift */,
-				956F2E9D1F9BB24800DDF990 /* Constant.swift */,
+				95907BB01FF2D1190067ED4A /* issuedTableViewCell.swift */,
+				95907BB21FF39CEA0067ED4A /* RegisterViewController.swift */,
 			);
 			path = "E+";
 			sourceTree = "<group>";
@@ -179,8 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				956F2E821F9A873600DDF990 /* LaunchScreen.storyboard in Resources */,
-				956F2E8C1F9A89B900DDF990 /* GoogleService-Info.plist in Resources */,
 				956F2E7F1F9A873600DDF990 /* Assets.xcassets in Resources */,
+				95B49C411F9D0C81009105BF /* Info.plist in Resources */,
 				956F2E7D1F9A873600DDF990 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,7 +259,9 @@
 				956F2E9C1F9B9C8F00DDF990 /* HistoryTableViewCell.swift in Sources */,
 				956F2E9A1F9B9C7800DDF990 /* InventoryTableViewCell.swift in Sources */,
 				956F2E921F9B557A00DDF990 /* cardViewController.swift in Sources */,
+				95907BB31FF39CEA0067ED4A /* RegisterViewController.swift in Sources */,
 				956F2E961F9B5D6100DDF990 /* componentsTableViewCell.swift in Sources */,
+				95907BB11FF2D1190067ED4A /* issuedTableViewCell.swift in Sources */,
 				956F2E941F9B558400DDF990 /* componentsViewController.swift in Sources */,
 				956F2E981F9B8A8000DDF990 /* RippleEffect.swift in Sources */,
 				956F2E901F9B4DBD00DDF990 /* PageViewController.swift in Sources */,
@@ -385,11 +391,15 @@
 			baseConfigurationReference = 11338F4B0DF662B2660D1E68 /* Pods-E+.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
 				INFOPLIST_FILE = "E+/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.skyblue.health.E-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.componentbank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -399,11 +409,15 @@
 			baseConfigurationReference = 8C88DE7F1F31CA9D84F9DB16 /* Pods-E+.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JCRFV5ZL52;
 				INFOPLIST_FILE = "E+/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.skyblue.health.E-";
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.componentbank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -7,27 +7,132 @@
 //
 
 import UIKit
-import Firebase
+import Alamofire
 
 class componentsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    
+    var issuedTo:[NSDictionary] = []
+    var selected = 0
+    
+    @IBAction func borrowButtonAction(_ sender: Any) {
+        let alertController = UIAlertController(title: "Components", message: "Enter the number of components your want to borrow from the Component Bank reserves. Approval may depend on further decision made by the admin!", preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
+            if let field = alertController.textFields![0] as? UITextField {
+                if self.isStringAnInt(string: field.text!) == true {
+                    let url = baseUrl + "issueComponent"
+                    let date = Date()
+                    let calendar = Calendar.current
+                    let year = calendar.component(.year, from: date)
+                    let month = calendar.component(.month, from: date)
+                    let day = calendar.component(.day, from: date)
+                    let d = String(day) + "-" + String(month) + "-" + String(year)
+                    if Int(field.text!)! > 0 {
+                        Alamofire.request(url, method: .post, parameters: ["componentcode" : String(describing: components[self.selected]["code"]!), "issuedbyname" : Name, "issuedbyregnum" : RegistrationNum, "issuedbyphonenum" : phoneNumber, "issuedbyemail" : Email, "issuedondate": d, "number" : field.text!]).responseJSON{
+                            response in
+                            if response.result.isSuccess{
+                                let x = response.result.value as! NSDictionary
+                                if x["success"] as! Bool == true{
+                                    self.view.layoutIfNeeded()
+                                    UIView.animate(withDuration: 1) {
+                                        self.menuView.isHidden = true
+                                        self.menuView.alpha = 0.0
+                                        self.view.layoutIfNeeded()
+                                    }
+                                    self.fetchData()
+                                }
+                                else{
+                                    let alertController = UIAlertController(title: "Failed!", message: "Failed to borrow!", preferredStyle: .alert)
+                                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                    alertController.addAction(defaultAction)
+                                    self.present(alertController, animated: true, completion: nil)
+                                }
+                            }
+                            else{
+                                let alertController = UIAlertController(title: "Failed!", message: "Failed to connect to the server", preferredStyle: .alert)
+                                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                                alertController.addAction(defaultAction)
+                                self.present(alertController, animated: true, completion: nil)
+                            }
+                        }
+                    }
+                    else{
+                        let alertController = UIAlertController(title: "Please enter a numeric value", message: "The quantity you have entered is a non positive intergral value. Please enter a proper input!", preferredStyle: .alert)
+                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                        alertController.addAction(defaultAction)
+                        self.present(alertController, animated: true, completion: nil)
+                    }
+                }
+                else{
+                    let alertController = UIAlertController(title: "Please enter a numeric value", message: "", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            } else {
+                // user did not fill field
+            }
+        }
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
+        alertController.addTextField { (textField) in
+            textField.placeholder = "Quantity"
+        }
+        alertController.addAction(confirmAction)
+        alertController.addAction(cancelAction)
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    @IBAction func returnButtonAction(_ sender: Any) {
+        self.view.layoutIfNeeded()
+        UIView.animate(withDuration: 1) {
+            self.menuView.isHidden = true
+            self.menuView.alpha = 0.0
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    @IBOutlet weak var issuedTableView: UITableView!
+    @IBOutlet weak var menuView: UIVisualEffectView!
     
     override func viewWillAppear(_ animated: Bool) {
         componentsTableView.reloadData()
     }
     
     @IBOutlet weak var componentsTableView: UITableView!
+    
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return components.count
+        if tableView == componentsTableView{
+            return components.count
+        }
+        else{
+            return issuedTo.count
+        }
     }
     
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = componentsTableView.dequeueReusableCell(withIdentifier: "components", for: indexPath as IndexPath) as! componentsTableViewCell
-        cell.componentNameLabel.text = String(describing : components[indexPath.row]["name"]!)
-        cell.availabilityLabel.text = String(describing : components[indexPath.row]["available"]!) + " Available"
-        cell.componentImageView.image = UIImage.init(named: "grey")
-        return cell
+        if tableView == componentsTableView{
+            let cell = componentsTableView.dequeueReusableCell(withIdentifier: "components", for: indexPath as IndexPath) as! componentsTableViewCell
+            cell.componentNameLabel.text = String(describing : components[indexPath.row]["name"]!) + " - " + String(describing : components[indexPath.row]["code"]!)
+            cell.availabilityLabel.text = String(describing : components[indexPath.row]["quantity"]!) + " Available"
+            cell.indexNumber.text = String(indexPath.row + 1)
+            return cell
+        }
+        else{
+            let cell = issuedTableView.dequeueReusableCell(withIdentifier: "issued", for: indexPath as IndexPath) as! issuedTableViewCell
+            cell.name.text = String(describing : issuedTo[indexPath.row]["name"]!)
+            cell.issuedDate.text = String(describing : issuedTo[indexPath.row]["issuedOn"]!)
+            cell.quantityIssued.text = String(describing : issuedTo[indexPath.row]["quantity"]!)
+            if issuedTo[indexPath.row]["returned"]! as! Bool == true{
+                cell.status.isHidden = false
+                print("false")
+            }
+            else{
+                cell.status.isHidden = true
+                print("true")
+            }
+            return cell
+        }
     }
     
     func isStringAnInt(string: String) -> Bool {
@@ -35,78 +140,61 @@ class componentsViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        componentsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
-        let actionSheetControllerIOS8: UIAlertController = UIAlertController(title: "Please select", message: "Option to select", preferredStyle: .actionSheet)
-        let saveActionButton = UIAlertAction(title: "Request Component", style: .default) { _ in
-            let alertController = UIAlertController(title: "Email?", message: "Please input your email:", preferredStyle: .alert)
-            let confirmAction = UIAlertAction(title: "Confirm", style: .default) { (_) in
-                if let field = alertController.textFields![0] as? UITextField {
-                    if self.isStringAnInt(string: field.text!) == true {
-                        FIRDatabase.database().reference().child("components/" + String(indexPath.row) + "/available").observeSingleEvent(of: .value , with: { (snapshot) in
-                            let available = snapshot.value as! Int
-                            if Int(field.text!)! <= available{
-                                print("processing request")
-                                let temp = available - Int(field.text!)!
-                                components[indexPath.row]["available"] = temp
-                                //to get the current date and time
-                                let date = Date()
-                                let calendar = Calendar.current
-                                let currentDate:String = String(calendar.component(.day, from: date)) + "/" + String(calendar.component(.month, from: date)) + "/" + String(calendar.component(.year, from: date))
-                                let currentTime:String = String(calendar.component(.hour, from: date)) + ":" + String(calendar.component(.minute, from: date)) + ":" + String(calendar.component(.second, from: date))
-                                FIRDatabase.database().reference().child("components/" + String(indexPath.row) + "/available").setValue(temp)
-                                history.append(["code" : components[indexPath.row]["code"]!, "date" : currentDate + " " + currentTime, "number" : field.text!, "status" : 0])
-                                FIRDatabase.database().reference().child("history/" + String(uid)).setValue(history)
-                                var count = 0
-                                var flag = 0
-                                for i in inventory{
-                                    print(String(describing: i["code"]!), String(describing: components[indexPath.row]["code"]!))
-                                    if String(describing: i["code"]!) == String(describing: components[indexPath.row]["code"]!){
-                                        let a = Int(String(describing: inventory[count]["number"]!))! + Int(field.text!)!
-                                        inventory[count]["number"] = String(a)
-                                        flag = 1
-                                        break
-                                    }
-                                    count += 1
-                                }
-                                if flag == 0{
-                                    inventory.append(["code" : components[indexPath.row]["code"]!, "number" : field.text!])
-                                }
-                                FIRDatabase.database().reference().child("inventory/" + String(uid)).setValue(inventory)
-                            }
-                            else{
-                                let alertController = UIAlertController(title: "Failed!", message: "Number of components requested exceed than available", preferredStyle: .alert)
-                                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                                alertController.addAction(defaultAction)
-                                self.present(alertController, animated: true, completion: nil)
-                            }
-                        })
-                    }
-                    else{
-                        let alertController = UIAlertController(title: "Please enter a numeric value", message: "", preferredStyle: .alert)
-                        let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
-                        alertController.addAction(defaultAction)
-                        self.present(alertController, animated: true, completion: nil)
-                    }
-                } else {
-                    // user did not fill field
-                }
+        if tableView == componentsTableView{
+            selected = indexPath.row
+            componentsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.75) {
+                self.menuView.isHidden = false
+                self.menuView.alpha = 1.0
+                self.view.layoutIfNeeded()
             }
-            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-            alertController.addTextField { (textField) in
-                textField.placeholder = "Number of components to request for!"
-            }
-            alertController.addAction(confirmAction)
-            alertController.addAction(cancelAction)
-            self.present(alertController, animated: true, completion: nil)
+            issuedTo = components[indexPath.row]["issuedBy"] as! [NSDictionary]
+            issuedTo.remove(at: 0)
+            issuedTableView.reloadData()
+            print(issuedTo)
         }
-        let cancel = UIAlertAction(title: "Cancel", style: .cancel) { (_) in }
-        actionSheetControllerIOS8.addAction(cancel)
-        actionSheetControllerIOS8.addAction(saveActionButton)
-        self.present(actionSheetControllerIOS8, animated: true, completion: nil)
+        else{
+            issuedTableView.deselectRow(at: indexPath as IndexPath, animated: true)
+            let number = issuedTo[indexPath.row]["phonenum"] as! String
+            print(number)
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: "tel://" + number)!, options: [:], completionHandler: nil)
+            } else {
+                // Fallback on earlier versions
+                print("calling feature not available")
+            }
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        componentsTableView.reloadData()
+        fetchData()
+    }
+    
+    func fetchData() {
+        let url = baseUrl + "getcomponents"
+        Alamofire.request(url, method: .get).responseJSON{
+            response in
+            if response.result.isSuccess{
+                let x = response.result.value as! NSDictionary
+                if x["success"] as! String == "true"{
+                    components = x["components"] as! [NSDictionary]
+                    self.componentsTableView.reloadData()
+                }
+                else{
+                    let alertController = UIAlertController(title: "Failed!", message: "Failed to connect to the server", preferredStyle: .alert)
+                    let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                    alertController.addAction(defaultAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+            else{
+                let alertController = UIAlertController(title: "Failed!", message: "Failed to connect to the server", preferredStyle: .alert)
+                let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                alertController.addAction(defaultAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -114,20 +202,11 @@ class componentsViewController: UIViewController, UITableViewDelegate, UITableVi
         // Do any additional setup after loading the view.
         componentsTableView.dataSource = self
         componentsTableView.delegate = self
-        FIRDatabase.database().reference().child("components").observe(.childChanged, with: {_ in
-            print("changed")
-            FIRDatabase.database().reference().child("components").observeSingleEvent(of: .value , with: { (snapshot) in
-                // Get user value
-                if let value = snapshot.value as? [NSDictionary]{
-                    //print(value)
-                    components = value as! [NSMutableDictionary]
-                    self.componentsTableView.reloadData()
-                }
-                // ...
-            }) { (error) in
-                print(error.localizedDescription)
-            }
-        })
+        issuedTableView.delegate = self
+        issuedTableView.dataSource = self
+        menuView.isHidden = true
+        menuView.alpha = 0.0
+        fetchData()
     }
 
     override func didReceiveMemoryWarning() {
