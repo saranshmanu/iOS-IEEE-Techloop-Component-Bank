@@ -1,14 +1,22 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, ’10.0’
+# platform :ios, '9.0'
 
-target 'E+' do
+target 'Component Bank' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-  # Pods for E+
-pod 'Firebase'
-pod 'Firebase/Auth'
-pod 'Firebase/Database'
+  # Pods for Component Bank
 pod 'Alamofire'
-pod 'AlamofireImage'
+pod 'lottie-ios'
+
+  target 'Component BankTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+  target 'Component BankUITests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
 end

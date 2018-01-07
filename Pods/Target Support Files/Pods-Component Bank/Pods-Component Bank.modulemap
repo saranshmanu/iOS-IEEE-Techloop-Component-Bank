@@ -1,0 +1,6 @@
+framework module Pods_Component_Bank {
+  umbrella header "Pods-Component Bank-umbrella.h"
+
+  export *
+  module * { export * }
+}
