@@ -11,12 +11,35 @@ import Alamofire
 
 var customToken = String()
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottonConstraint: NSLayoutConstraint!
     @IBOutlet weak var loader: UIView!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var usernameTextField: UITextField!
+    
+    var constant:CGFloat = 180.0
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.27) {
+            self.topConstraint.constant -= self.constant
+            self.bottonConstraint.constant += self.constant
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if !(self.usernameTextField.isEditing || self.passwordTextField.isEditing) {
+            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.27, animations: {
+                self.topConstraint.constant += self.constant
+                self.bottonConstraint.constant -= self.constant
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
     
     @objc func dismissKeyboard() {
         usernameTextField.resignFirstResponder()
@@ -93,10 +116,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        usernameTextField.delegate = self
+        passwordTextField.delegate = self
         loader.alpha = 0.0
         loader.isHidden = true
-        usernameTextField.text = "saranshmanu@yahoo.co.in"
-        passwordTextField.text = "qwerty"
+        usernameTextField.text = ""
+        passwordTextField.text = ""
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard)))
         
     }

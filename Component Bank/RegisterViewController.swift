@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class RegisterViewController: UIViewController {
+class RegisterViewController: UIViewController, UITextFieldDelegate {
 
     func loginAction() {
         var url = authenticateUrl + "login"
@@ -67,6 +67,30 @@ class RegisterViewController: UIViewController {
         }
     }
 
+    @IBOutlet weak var topConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottonConstraint: NSLayoutConstraint!
+    
+    var constant:CGFloat = 180.0
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.27) {
+            self.topConstraint.constant -= self.constant
+            self.bottonConstraint.constant += self.constant
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if !(self.name.isEditing || self.email.isEditing || self.password.isEditing || self.registrationNum.isEditing || self.phone.isEditing) {
+            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.27, animations: {
+                self.topConstraint.constant += self.constant
+                self.bottonConstraint.constant -= self.constant
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
     func isStringAnInt(string: String) -> Bool {
         return Int(string) != nil
     }
@@ -79,6 +103,12 @@ class RegisterViewController: UIViewController {
             self.view.layoutIfNeeded()
         })
         if name.text! == "" || password.text! == "" || email.text! == "" || phone.text! == "" || registrationNum.text! == ""{
+            self.view.layoutIfNeeded()
+            UIView.animate(withDuration: 0.2, animations: {
+                self.loader.alpha = 0.0
+                self.loader.isHidden = true
+                self.view.layoutIfNeeded()
+            })
             let alertController = UIAlertController(title: "Failed!", message: "Fields Empty!", preferredStyle: .alert)
             let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
             alertController.addAction(defaultAction)
@@ -91,10 +121,19 @@ class RegisterViewController: UIViewController {
                     response in
                     if response.result.isSuccess == true{
                         let x = response.result.value! as! NSDictionary
+                        print(x)
                         if x["success"] as! Bool == true{
                             print("Sign Up Success")
                             self.view.layoutIfNeeded()
-                            self.loginAction()
+                            UIView.animate(withDuration: 0.2, animations: {
+                                self.loader.alpha = 0.0
+                                self.loader.isHidden = true
+                                self.view.layoutIfNeeded()
+                            })
+                            let alertController = UIAlertController(title: "Succcess!", message: "Wait for the admin to approve your request!", preferredStyle: .alert)
+                            let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
+                            alertController.addAction(defaultAction)
+                            self.present(alertController, animated: true, completion: nil)
                         }
                         else{
                             print("Sign Up Failed")
@@ -150,13 +189,20 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        name.delegate = self
+        email.delegate = self
+        registrationNum.delegate = self
+        phone.delegate = self
+        password.delegate = self
         // Do any additional setup after loading the view.
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(ViewController.dismissKeyboard)))
-        name.text = "Saransh Mittal"
-        email.text = "saranshmanu@yahoo.co.in"
-        registrationNum.text = "16BCE0642"
-        phone.text = "9910749550"
-        password.text = "qwerty"
+        name.text = ""
+        email.text = ""
+        registrationNum.text = ""
+        phone.text = ""
+        password.text = ""
+        loader.alpha = 0.0
+        loader.isHidden = true
     }
     
     @objc func dismissKeyboard() {

@@ -156,6 +156,7 @@ class componentsViewController: UIViewController, UITableViewDelegate, UITableVi
             selected = indexPath.row
             componentsTableView.deselectRow(at: indexPath as IndexPath, animated: true)
             let url = memberUrl + "getIssuers"
+            loaderStart()
             Alamofire.request(url, method: .post, parameters: ["token" : token, "id": String(describing: components[indexPath.row]["_id"]!)]).responseJSON{
                 response in
                 if response.result.isSuccess{
@@ -170,9 +171,11 @@ class componentsViewController: UIViewController, UITableViewDelegate, UITableVi
                                 }
                             }
                         }
+                        self.loaderStop()
                         self.issuedTableView.reloadData()
                     }
                     else{
+                        self.loaderStop()
                         let alertController = UIAlertController(title: "Failed!", message: "Failed to connect to the server", preferredStyle: .alert)
                         let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                         alertController.addAction(defaultAction)
@@ -180,13 +183,13 @@ class componentsViewController: UIViewController, UITableViewDelegate, UITableVi
                     }
                 }
                 else{
+                    self.loaderStop()
                     let alertController = UIAlertController(title: "Failed!", message: "Failed to connect to the server", preferredStyle: .alert)
                     let defaultAction = UIAlertAction(title: "OK", style: .cancel, handler: nil)
                     alertController.addAction(defaultAction)
                     self.present(alertController, animated: true, completion: nil)
                 }
             }
-            
             self.view.layoutIfNeeded()
             UIView.animate(withDuration: 0.75) {
                 self.menuView.isHidden = false
