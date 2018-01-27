@@ -47,6 +47,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func loginAction(_ sender: Any) {
+        dismissKeyboard()
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
             self.loader.alpha = 1.0

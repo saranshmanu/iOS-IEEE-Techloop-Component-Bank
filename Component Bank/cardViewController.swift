@@ -18,6 +18,7 @@ class cardViewController: UIViewController, UITableViewDataSource, UITableViewDe
     @IBOutlet weak var welcomeMessage: UILabel!
     @IBOutlet weak var firstName: UILabel!
     @IBOutlet weak var registrationNumber: UILabel!
+    var screenHeight:Int = 0
     
     @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -149,6 +150,8 @@ class cardViewController: UIViewController, UITableViewDataSource, UITableViewDe
         registrationNumber.text = RegistrationNum
         emailField.text = Email
         phoneNum.text = phoneNumber
+        screenHeight = Int(UIScreen.main.bounds.height)
+        
         fetchData()
     }
 
