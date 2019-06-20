@@ -8,8 +8,7 @@
 
 import UIKit
 
-class componentsTableViewCell: UITableViewCell {
-
+class ComponentsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var indexNumber: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
@@ -22,7 +21,6 @@ class componentsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

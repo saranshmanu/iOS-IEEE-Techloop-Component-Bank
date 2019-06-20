@@ -1,19 +1,18 @@
 //
-//  issuedTableViewCell.swift
+//  InventoryTableViewCell.swift
 //  E+
 //
-//  Created by Saransh Mittal on 27/12/17.
+//  Created by Saransh Mittal on 21/10/17.
 //  Copyright © 2017 Saransh Mittal. All rights reserved.
 //
 
 import UIKit
 
-class issuedTableViewCell: UITableViewCell {
+class InventoryTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var status: UILabel!
-    @IBOutlet weak var quantityIssued: UILabel!
-    @IBOutlet weak var issuedDate: UILabel!
-    @IBOutlet weak var name: UILabel!
+    @IBOutlet weak var date: UILabel!
+    @IBOutlet weak var quantityNumber: UILabel!
+    @IBOutlet weak var componentName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +21,6 @@ class issuedTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
         // Configure the view for the selected state
     }
 

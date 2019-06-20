@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4FBF5F7A945C15FD4DE9611C /* Pods_Component_Bank.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04A7C132BF17C50C1131B0A0 /* Pods_Component_Bank.framework */; };
+		95BAE22522BB810E000FB330 /* issuedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16D200224BC00CE6EB0 /* issuedTableViewCell.swift */; };
 		95C6D1392002242100CE6EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C6D1372002242100CE6EB0 /* Main.storyboard */; };
 		95C6D13B2002242100CE6EB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 95C6D13A2002242100CE6EB0 /* Assets.xcassets */; };
 		95C6D13E2002242100CE6EB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 95C6D13C2002242100CE6EB0 /* LaunchScreen.storyboard */; };
@@ -16,16 +17,17 @@
 		95C6D170200224BD00CE6EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D161200224BB00CE6EB0 /* AppDelegate.swift */; };
 		95C6D171200224BD00CE6EB0 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D162200224BB00CE6EB0 /* RegisterViewController.swift */; };
 		95C6D174200224BD00CE6EB0 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D165200224BB00CE6EB0 /* HistoryTableViewCell.swift */; };
-		95C6D175200224BD00CE6EB0 /* componentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D166200224BB00CE6EB0 /* componentsViewController.swift */; };
+		95C6D175200224BD00CE6EB0 /* ComponentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D166200224BB00CE6EB0 /* ComponentsViewController.swift */; };
 		95C6D176200224BD00CE6EB0 /* InventoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D167200224BB00CE6EB0 /* InventoryTableViewCell.swift */; };
 		95C6D177200224BD00CE6EB0 /* RippleEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D168200224BC00CE6EB0 /* RippleEffect.swift */; };
-		95C6D178200224BD00CE6EB0 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D169200224BC00CE6EB0 /* Constant.swift */; };
-		95C6D179200224BD00CE6EB0 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 95C6D16A200224BC00CE6EB0 /* Info.plist */; };
-		95C6D17A200224BD00CE6EB0 /* componentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16B200224BC00CE6EB0 /* componentsTableViewCell.swift */; };
-		95C6D17B200224BD00CE6EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16C200224BC00CE6EB0 /* ViewController.swift */; };
-		95C6D17C200224BD00CE6EB0 /* issuedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16D200224BC00CE6EB0 /* issuedTableViewCell.swift */; };
-		95C6D17D200224BD00CE6EB0 /* cardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16E200224BD00CE6EB0 /* cardViewController.swift */; };
-		95C6D17E200224BD00CE6EB0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16F200224BD00CE6EB0 /* PageViewController.swift */; };
+		95C6D178200224BD00CE6EB0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D169200224BC00CE6EB0 /* Constants.swift */; };
+		95C6D17A200224BD00CE6EB0 /* ComponentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16B200224BC00CE6EB0 /* ComponentsTableViewCell.swift */; };
+		95C6D17B200224BD00CE6EB0 /* AuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16C200224BC00CE6EB0 /* AuthenticationViewController.swift */; };
+		95C6D17D200224BD00CE6EB0 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95C6D16E200224BD00CE6EB0 /* PageViewController.swift */; };
+		95FCFAD522BB894000985E0D /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFAD422BB894000985E0D /* AlertView.swift */; };
+		95FCFAD722BB8C6A00985E0D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFAD622BB8C6A00985E0D /* ProfileViewController.swift */; };
+		95FCFAD922BBA0E800985E0D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFAD822BBA0E800985E0D /* Profile.swift */; };
+		95FCFADC22BBA1EF00985E0D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFADB22BBA1EF00985E0D /* NetworkEngine.swift */; };
 		D0594FA8E0A2045D365CA15C /* Pods_Component_BankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591B7D16EE33A46D934B9EBD /* Pods_Component_BankTests.framework */; };
 		EF3BAD0316CF240A9BD7C169 /* Pods_Component_BankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53ED5AE888CFF0AE41AAE636 /* Pods_Component_BankUITests.framework */; };
 /* End PBXBuildFile section */
@@ -59,7 +61,6 @@
 		95C6D1382002242100CE6EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		95C6D13A2002242100CE6EB0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		95C6D13D2002242100CE6EB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		95C6D13F2002242100CE6EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95C6D1442002242100CE6EB0 /* Component BankTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Component BankTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		95C6D1482002242100CE6EB0 /* Component_BankTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Component_BankTests.swift; sourceTree = "<group>"; };
 		95C6D14A2002242100CE6EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -68,17 +69,20 @@
 		95C6D1552002242200CE6EB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		95C6D161200224BB00CE6EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		95C6D162200224BB00CE6EB0 /* RegisterViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
-		95C6D165200224BB00CE6EB0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
-		95C6D166200224BB00CE6EB0 /* componentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = componentsViewController.swift; sourceTree = "<group>"; };
-		95C6D167200224BB00CE6EB0 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InventoryTableViewCell.swift; sourceTree = "<group>"; };
+		95C6D165200224BB00CE6EB0 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HistoryTableViewCell.swift; path = "Component Bank/ViewControllers/HistoryTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		95C6D166200224BB00CE6EB0 /* ComponentsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ComponentsViewController.swift; sourceTree = "<group>"; };
+		95C6D167200224BB00CE6EB0 /* InventoryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = InventoryTableViewCell.swift; path = "Component Bank/ViewControllers/InventoryTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		95C6D168200224BC00CE6EB0 /* RippleEffect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RippleEffect.swift; sourceTree = "<group>"; };
-		95C6D169200224BC00CE6EB0 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		95C6D169200224BC00CE6EB0 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		95C6D16A200224BC00CE6EB0 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		95C6D16B200224BC00CE6EB0 /* componentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = componentsTableViewCell.swift; sourceTree = "<group>"; };
-		95C6D16C200224BC00CE6EB0 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		95C6D16D200224BC00CE6EB0 /* issuedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = issuedTableViewCell.swift; sourceTree = "<group>"; };
-		95C6D16E200224BD00CE6EB0 /* cardViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cardViewController.swift; sourceTree = "<group>"; };
-		95C6D16F200224BD00CE6EB0 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		95C6D16B200224BC00CE6EB0 /* ComponentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ComponentsTableViewCell.swift; path = "Component Bank/ViewControllers/ComponentsTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		95C6D16C200224BC00CE6EB0 /* AuthenticationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthenticationViewController.swift; sourceTree = "<group>"; };
+		95C6D16D200224BC00CE6EB0 /* issuedTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = issuedTableViewCell.swift; path = "Component Bank/ViewControllers/issuedTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		95C6D16E200224BD00CE6EB0 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		95FCFAD422BB894000985E0D /* AlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertView.swift; sourceTree = "<group>"; };
+		95FCFAD622BB8C6A00985E0D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		95FCFAD822BBA0E800985E0D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		95FCFADB22BBA1EF00985E0D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
 		EC6AC56B1313FA0C99DBFB33 /* Pods-Component BankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Component BankTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Component BankTests/Pods-Component BankTests.release.xcconfig"; sourceTree = "<group>"; };
 		F8CB43BE16CA9A2675ACE027 /* Pods-Component BankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Component BankUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Component BankUITests/Pods-Component BankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,23 +163,10 @@
 		95C6D1322002242100CE6EB0 /* Component Bank */ = {
 			isa = PBXGroup;
 			children = (
-				95C6D161200224BB00CE6EB0 /* AppDelegate.swift */,
-				95C6D16E200224BD00CE6EB0 /* cardViewController.swift */,
-				95C6D16B200224BC00CE6EB0 /* componentsTableViewCell.swift */,
-				95C6D166200224BB00CE6EB0 /* componentsViewController.swift */,
-				95C6D169200224BC00CE6EB0 /* Constant.swift */,
-				95C6D165200224BB00CE6EB0 /* HistoryTableViewCell.swift */,
+				95FCFAD222BB857900985E0D /* Model */,
+				95FCFACF22BB84EA00985E0D /* ViewControllers */,
+				95FCFAD122BB855C00985E0D /* View */,
 				95C6D16A200224BC00CE6EB0 /* Info.plist */,
-				95C6D167200224BB00CE6EB0 /* InventoryTableViewCell.swift */,
-				95C6D16D200224BC00CE6EB0 /* issuedTableViewCell.swift */,
-				95C6D16F200224BD00CE6EB0 /* PageViewController.swift */,
-				95C6D162200224BB00CE6EB0 /* RegisterViewController.swift */,
-				95C6D168200224BC00CE6EB0 /* RippleEffect.swift */,
-				95C6D16C200224BC00CE6EB0 /* ViewController.swift */,
-				95C6D1372002242100CE6EB0 /* Main.storyboard */,
-				95C6D13A2002242100CE6EB0 /* Assets.xcassets */,
-				95C6D13C2002242100CE6EB0 /* LaunchScreen.storyboard */,
-				95C6D13F2002242100CE6EB0 /* Info.plist */,
 			);
 			path = "Component Bank";
 			sourceTree = "<group>";
@@ -196,6 +187,61 @@
 				95C6D1552002242200CE6EB0 /* Info.plist */,
 			);
 			path = "Component BankUITests";
+			sourceTree = "<group>";
+		};
+		95FCFACF22BB84EA00985E0D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				95C6D161200224BB00CE6EB0 /* AppDelegate.swift */,
+				95C6D16C200224BC00CE6EB0 /* AuthenticationViewController.swift */,
+				95C6D162200224BB00CE6EB0 /* RegisterViewController.swift */,
+				95FCFAD622BB8C6A00985E0D /* ProfileViewController.swift */,
+				95C6D166200224BB00CE6EB0 /* ComponentsViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		95FCFAD122BB855C00985E0D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				95C6D16E200224BD00CE6EB0 /* PageViewController.swift */,
+				95FCFADA22BBA19600985E0D /* TableViewCell */,
+				95C6D168200224BC00CE6EB0 /* RippleEffect.swift */,
+				95C6D13A2002242100CE6EB0 /* Assets.xcassets */,
+				95FCFAD322BB85AB00985E0D /* Storyboards */,
+				95FCFAD422BB894000985E0D /* AlertView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		95FCFAD222BB857900985E0D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				95FCFAD822BBA0E800985E0D /* Profile.swift */,
+				95FCFADB22BBA1EF00985E0D /* NetworkEngine.swift */,
+				95C6D169200224BC00CE6EB0 /* Constants.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		95FCFAD322BB85AB00985E0D /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				95C6D1372002242100CE6EB0 /* Main.storyboard */,
+				95C6D13C2002242100CE6EB0 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		95FCFADA22BBA19600985E0D /* TableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				95C6D16B200224BC00CE6EB0 /* ComponentsTableViewCell.swift */,
+				95C6D165200224BB00CE6EB0 /* HistoryTableViewCell.swift */,
+				95C6D167200224BB00CE6EB0 /* InventoryTableViewCell.swift */,
+				95C6D16D200224BC00CE6EB0 /* issuedTableViewCell.swift */,
+			);
+			path = TableViewCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -316,7 +362,6 @@
 			files = (
 				95C6D13E2002242100CE6EB0 /* LaunchScreen.storyboard in Resources */,
 				95C6D13B2002242100CE6EB0 /* Assets.xcassets in Resources */,
-				95C6D179200224BD00CE6EB0 /* Info.plist in Resources */,
 				95C6D1392002242100CE6EB0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -494,18 +539,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				95C6D17C200224BD00CE6EB0 /* issuedTableViewCell.swift in Sources */,
-				95C6D17E200224BD00CE6EB0 /* PageViewController.swift in Sources */,
+				95BAE22522BB810E000FB330 /* issuedTableViewCell.swift in Sources */,
 				95C6D170200224BD00CE6EB0 /* AppDelegate.swift in Sources */,
-				95C6D17D200224BD00CE6EB0 /* cardViewController.swift in Sources */,
-				95C6D178200224BD00CE6EB0 /* Constant.swift in Sources */,
-				95C6D175200224BD00CE6EB0 /* componentsViewController.swift in Sources */,
-				95C6D17B200224BD00CE6EB0 /* ViewController.swift in Sources */,
+				95C6D17D200224BD00CE6EB0 /* PageViewController.swift in Sources */,
+				95FCFAD922BBA0E800985E0D /* Profile.swift in Sources */,
+				95C6D178200224BD00CE6EB0 /* Constants.swift in Sources */,
+				95C6D175200224BD00CE6EB0 /* ComponentsViewController.swift in Sources */,
+				95FCFAD522BB894000985E0D /* AlertView.swift in Sources */,
+				95C6D17B200224BD00CE6EB0 /* AuthenticationViewController.swift in Sources */,
 				95C6D176200224BD00CE6EB0 /* InventoryTableViewCell.swift in Sources */,
 				95C6D171200224BD00CE6EB0 /* RegisterViewController.swift in Sources */,
 				95C6D177200224BD00CE6EB0 /* RippleEffect.swift in Sources */,
+				95FCFADC22BBA1EF00985E0D /* NetworkEngine.swift in Sources */,
+				95FCFAD722BB8C6A00985E0D /* ProfileViewController.swift in Sources */,
 				95C6D174200224BD00CE6EB0 /* HistoryTableViewCell.swift in Sources */,
-				95C6D17A200224BD00CE6EB0 /* componentsTableViewCell.swift in Sources */,
+				95C6D17A200224BD00CE6EB0 /* ComponentsTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -677,7 +725,7 @@
 				INFOPLIST_FILE = "Component Bank/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.skyblue.Component-Bank";
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.componentBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -694,7 +742,7 @@
 				INFOPLIST_FILE = "Component Bank/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.skyblue.Component-Bank";
+				PRODUCT_BUNDLE_IDENTIFIER = com.skyblue.componentBank;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
