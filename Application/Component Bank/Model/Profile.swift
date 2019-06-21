@@ -13,6 +13,7 @@ class User {
     public static var history:[NSDictionary] = []
     public static var components:[NSDictionary] = []
     public static var inventory:[NSDictionary] = []
+    public static var componentBorrowers:[NSDictionary] = []
     public static var customToken = String()
     
     public static var name = ""

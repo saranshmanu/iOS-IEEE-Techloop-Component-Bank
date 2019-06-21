@@ -349,9 +349,9 @@
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
                                         <connections>
-                                            <outlet property="availabilityLabel" destination="Sbg-iq-s3B" id="Pef-kl-MYi"/>
+                                            <outlet property="availabilityLabel" destination="GQf-gb-WsR" id="bjB-IP-Lyr"/>
                                             <outlet property="componentNameLabel" destination="S4x-qO-647" id="vFJ-v8-78m"/>
-                                            <outlet property="indexNumber" destination="GQf-gb-WsR" id="dnp-oe-g5U"/>
+                                            <outlet property="indexNumberLabel" destination="Sbg-iq-s3B" id="cNF-Rj-WcC"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -417,7 +417,7 @@
                                                                         <nil key="highlightedColor"/>
                                                                     </label>
                                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="8gt-8Y-u2d">
-                                                                        <rect key="frame" x="23" y="10" width="107.5" height="50"/>
+                                                                        <rect key="frame" x="23" y="15.5" width="107.5" height="39"/>
                                                                         <subviews>
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Saransh Mittal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YZq-Gp-XPi">
                                                                                 <rect key="frame" x="0.0" y="0.0" width="107.5" height="23.5"/>
@@ -428,12 +428,6 @@
                                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="24-12-2017" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B29-wh-Zir">
                                                                                 <rect key="frame" x="0.0" y="23.5" width="107.5" height="15.5"/>
                                                                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="11"/>
-                                                                                <nil key="textColor"/>
-                                                                                <nil key="highlightedColor"/>
-                                                                            </label>
-                                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Returned" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmS-x0-Fl0">
-                                                                                <rect key="frame" x="0.0" y="39" width="107.5" height="11"/>
-                                                                                <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="8"/>
                                                                                 <nil key="textColor"/>
                                                                                 <nil key="highlightedColor"/>
                                                                             </label>
@@ -450,10 +444,9 @@
                                                                 </constraints>
                                                             </tableViewCellContentView>
                                                             <connections>
-                                                                <outlet property="issuedDate" destination="B29-wh-Zir" id="Ust-HY-4a8"/>
+                                                                <outlet property="issuedDateLabel" destination="B29-wh-Zir" id="Ust-HY-4a8"/>
                                                                 <outlet property="name" destination="YZq-Gp-XPi" id="v4E-WB-tUw"/>
-                                                                <outlet property="quantityIssued" destination="f1n-Nd-bPa" id="Vbv-bS-UHH"/>
-                                                                <outlet property="status" destination="OmS-x0-Fl0" id="nLt-Pj-pxE"/>
+                                                                <outlet property="quantityIssuedLabel" destination="f1n-Nd-bPa" id="Vbv-bS-UHH"/>
                                                             </connections>
                                                         </tableViewCell>
                                                     </prototypes>
@@ -482,7 +475,6 @@
                                         <constraint firstItem="g9s-Dg-8SP" firstAttribute="centerX" secondItem="7WV-Zt-HWP" secondAttribute="centerX" id="Crk-Y4-EZI"/>
                                         <constraint firstAttribute="trailing" secondItem="g9s-Dg-8SP" secondAttribute="trailing" constant="24" id="E7k-Ut-R2e"/>
                                         <constraint firstAttribute="bottom" secondItem="g9s-Dg-8SP" secondAttribute="bottom" constant="71" id="RU5-6W-qFn"/>
-                                        <constraint firstItem="g9s-Dg-8SP" firstAttribute="centerY" secondItem="7WV-Zt-HWP" secondAttribute="centerY" id="tB4-dS-Dyr"/>
                                     </constraints>
                                 </view>
                                 <blurEffect style="dark"/>
@@ -780,16 +772,8 @@
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cGo-LR-lm3">
-                                                                    <rect key="frame" x="20" y="13.5" width="1" height="37"/>
-                                                                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="height" constant="37" id="C6B-E7-1La"/>
-                                                                        <constraint firstAttribute="width" constant="1" id="FU4-1W-Kbn"/>
-                                                                    </constraints>
-                                                                </view>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b1O-r6-jMK">
-                                                                    <rect key="frame" x="37" y="11" width="99" height="41.5"/>
+                                                                    <rect key="frame" x="20" y="11" width="99" height="41.5"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Component" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDR-UO-TOl">
                                                                             <rect key="frame" x="0.0" y="0.0" width="99" height="25"/>
@@ -808,11 +792,9 @@
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="12f-jR-uYq" firstAttribute="centerY" secondItem="Xgp-D5-KWb" secondAttribute="centerY" id="3ie-o1-F1H"/>
-                                                                <constraint firstItem="cGo-LR-lm3" firstAttribute="leading" secondItem="Xgp-D5-KWb" secondAttribute="leading" constant="20" id="Drg-cs-icP"/>
-                                                                <constraint firstItem="cGo-LR-lm3" firstAttribute="centerY" secondItem="Xgp-D5-KWb" secondAttribute="centerY" id="FUT-a7-kyH"/>
-                                                                <constraint firstItem="b1O-r6-jMK" firstAttribute="leading" secondItem="cGo-LR-lm3" secondAttribute="trailing" constant="16" id="G3c-ZG-RgM"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="12f-jR-uYq" secondAttribute="trailing" constant="20" id="IgN-vw-RvH"/>
                                                                 <constraint firstItem="b1O-r6-jMK" firstAttribute="centerY" secondItem="Xgp-D5-KWb" secondAttribute="centerY" id="VSu-p1-48J"/>
+                                                                <constraint firstItem="b1O-r6-jMK" firstAttribute="leading" secondItem="Xgp-D5-KWb" secondAttribute="leadingMargin" constant="5" id="iYg-jy-qvd"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
@@ -843,14 +825,6 @@
                                                             <rect key="frame" x="0.0" y="0.0" width="335" height="64"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dSI-Rb-HkQ">
-                                                                    <rect key="frame" x="27" y="13.5" width="1" height="37"/>
-                                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <constraints>
-                                                                        <constraint firstAttribute="width" constant="1" id="JI5-W5-bOl"/>
-                                                                        <constraint firstAttribute="height" constant="37" id="lhE-se-QiC"/>
-                                                                    </constraints>
-                                                                </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZj-E9-Wnz">
                                                                     <rect key="frame" x="286" y="15.5" width="14" height="33"/>
                                                                     <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="24"/>
@@ -858,7 +832,7 @@
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="A41-bK-o44">
-                                                                    <rect key="frame" x="47" y="12.5" width="98" height="39"/>
+                                                                    <rect key="frame" x="20" y="12.5" width="98" height="39"/>
                                                                     <subviews>
                                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Component" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TTz-XU-RnN">
                                                                             <rect key="frame" x="0.0" y="0.0" width="98" height="19.5"/>
@@ -876,11 +850,9 @@
                                                                 </stackView>
                                                             </subviews>
                                                             <constraints>
-                                                                <constraint firstItem="dSI-Rb-HkQ" firstAttribute="centerY" secondItem="mOD-6b-9KZ" secondAttribute="centerY" id="10d-NC-iP0"/>
-                                                                <constraint firstItem="A41-bK-o44" firstAttribute="leading" secondItem="dSI-Rb-HkQ" secondAttribute="trailing" constant="19" id="EEG-YP-Vfq"/>
                                                                 <constraint firstItem="A41-bK-o44" firstAttribute="centerY" secondItem="mOD-6b-9KZ" secondAttribute="centerY" id="K2G-eS-mmL"/>
-                                                                <constraint firstItem="dSI-Rb-HkQ" firstAttribute="leading" secondItem="mOD-6b-9KZ" secondAttribute="leadingMargin" constant="12" id="NHX-fk-4B0"/>
                                                                 <constraint firstAttribute="trailingMargin" secondItem="uZj-E9-Wnz" secondAttribute="trailing" constant="20" id="QoG-7F-kHh"/>
+                                                                <constraint firstItem="A41-bK-o44" firstAttribute="leading" secondItem="mOD-6b-9KZ" secondAttribute="leadingMargin" constant="5" id="VuV-ub-rJR"/>
                                                                 <constraint firstItem="uZj-E9-Wnz" firstAttribute="centerY" secondItem="mOD-6b-9KZ" secondAttribute="centerY" id="sLy-s9-xRf"/>
                                                             </constraints>
                                                         </tableViewCellContentView>
@@ -889,7 +861,6 @@
                                                             <outlet property="componentName" destination="TTz-XU-RnN" id="fdY-hW-i9q"/>
                                                             <outlet property="date" destination="ofc-Ji-By2" id="nex-20-ja7"/>
                                                             <outlet property="quantityNumber" destination="uZj-E9-Wnz" id="Il5-Mo-518"/>
-                                                            <outlet property="status" destination="dSI-Rb-HkQ" id="Sdg-Gw-vDP"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>

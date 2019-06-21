@@ -10,9 +10,8 @@ import UIKit
 
 class IssuedTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var status: UILabel!
-    @IBOutlet weak var quantityIssued: UILabel!
-    @IBOutlet weak var issuedDate: UILabel!
+    @IBOutlet weak var quantityIssuedLabel: UILabel!
+    @IBOutlet weak var issuedDateLabel: UILabel!
     @IBOutlet weak var name: UILabel!
     
     override func awakeFromNib() {

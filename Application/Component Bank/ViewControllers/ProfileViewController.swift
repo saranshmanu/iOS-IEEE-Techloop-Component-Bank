@@ -12,6 +12,8 @@ import Alamofire
 // 657.5
 class ProfileViewController: UIViewController {
     
+    var screenHeight:Int = 0
+    
     @IBOutlet weak var phoneNum: UILabel!
     @IBOutlet weak var emailField: UILabel!
     @IBOutlet weak var welcomeMessage: UILabel!
@@ -25,61 +27,33 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var inventoryTableView: UITableView!
     @IBOutlet weak var cardView: UIView!
     
-    var screenHeight:Int = 0
-    var issued:[NSDictionary] = []
-    var returned:[NSDictionary] = []
-    
     func isStringAnInt(string: String) -> Bool {
         return Int(string) != nil
     }
-
     
+    func getBorrowHistory() {
+        NetworkEngine.Member.getBorrowHistory(completion: { (success) in
+            if success {
+                self.inventoryTableView.reloadData()
+                self.historyTableView.reloadData()
+            } else {
+                AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
+            }
+        })
+    }
     
-    func fetchData(){
-//        NetworkEngine.Member.getComponents(url: Constants.memberURL + "getIssuedComponents") { (success) in
-//            if success {
-//                NetworkEngine.Member.getBorrowHistory(url: Constants.memberURL + "getHistory", completion: { (success) in
-//                    if success {
-//                        self.inventoryTableView.reloadData()
-//                        self.historyTableView.reloadData()
-//                    } else {
-//                        AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
-//                    }
-//                })
-//            } else {
-//                AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
-//            }
-//        }
-        let url = Constants.memberURL + "getIssuedComponents"
-        Alamofire.request(url, method: .post, parameters: ["token" : User.token]).responseJSON{
-            response in
-            if response.result.isSuccess{
-                let x = response.result.value as! NSDictionary
-                if x["success"] as! Bool == true{
-                    self.issued = x["components"] as! [NSDictionary]
-                    let URL = Constants.memberURL + "getHistory"
-                    Alamofire.request(URL, method: .post, parameters: ["token" : User.token]).responseJSON{
-                        response in
-                        if response.result.isSuccess{
-                            let a = response.result.value as! NSDictionary
-                            if a["success"] as! Bool == true{
-                                self.returned = a["components"] as! [NSDictionary]
-                                self.inventoryTableView.reloadData()
-                                self.historyTableView.reloadData()
-                            } else {
-                                AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
-                            }
-                        } else {
-                            AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
-                        }
-                    }
-                } else {
-                    AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
-                }
+    func getComponents() {
+        NetworkEngine.Member.getComponents() { (success) in
+            if success {
+                self.getBorrowHistory()
             } else {
                 AlertView.showAlert(title: "Failed!", message: "Failed to connect to the server", buttonLabel: "OK", viewController: self)
             }
         }
+    }
+
+    func fetchData(){
+        getComponents()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,45 +80,43 @@ class ProfileViewController: UIViewController {
 }
 
 extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
-    @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView == historyTableView{
             self.view.layoutIfNeeded()
             UIView.animate(withDuration: 0.2, animations: {
-                self.historyHeight.constant = CGFloat(64 * self.returned.count)
+                self.historyHeight.constant = CGFloat(64 * User.history.count)
                 self.pageHeight.constant = 607.5 + (self.inventoryHeight.constant + self.historyHeight.constant)
                 self.view.layoutIfNeeded()
             })
-            return returned.count
+            return User.history.count
         } else {
             self.view.layoutIfNeeded()
             UIView.animate(withDuration: 0.2, animations: {
-                self.inventoryHeight.constant = CGFloat(64 * self.issued.count)
+                self.inventoryHeight.constant = CGFloat(64 * User.components.count)
                 self.pageHeight.constant = 607.5 + (self.inventoryHeight.constant + self.historyHeight.constant)
                 self.view.layoutIfNeeded()
             })
-            return issued.count
+            return User.components.count
         }
     }
-    
-    @available(iOS 2.0, *)
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if tableView == historyTableView{
+        if tableView == historyTableView {
+            let component = User.history[indexPath.row] as NSDictionary
             let cell = historyTableView.dequeueReusableCell(withIdentifier: "historyTableCell", for: indexPath as IndexPath) as! HistoryTableViewCell
-            cell.componentName.text = String(describing : returned[indexPath.row]["componentName"]!)
-            cell.quantityNumber.text = String(describing: returned[indexPath.row]["quantity"]!)
-            cell.date.text = String(describing: returned[indexPath.row]["date"]!)
+            cell.componentName.text = component["componentName"] as? String
+            cell.quantityNumber.text = "\(component["quantity"] as! Int)"
+            cell.date.text = component["date"] as? String
             return cell
         } else {
+            let component = User.components[indexPath.row] as NSDictionary
             let cell = inventoryTableView.dequeueReusableCell(withIdentifier: "inventoryTableCell", for: indexPath as IndexPath) as! InventoryTableViewCell
-            print(issued[indexPath.row])
-            cell.componentName.text = String(describing : issued[indexPath.row]["componentName"]!)
-            cell.quantityNumber.text = String(describing: issued[indexPath.row]["quantity"]!)
-            cell.date.text = String(describing: issued[indexPath.row]["date"]!)
+            cell.componentName.text = component["componentName"] as? String
+            cell.quantityNumber.text = "\(component["quantity"] as! Int)"
+            cell.date.text = component["date"] as? String
             return cell
         }
     }
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class ComponentsTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var indexNumber: UILabel!
+    @IBOutlet weak var indexNumberLabel: UILabel!
     @IBOutlet weak var availabilityLabel: UILabel!
     @IBOutlet weak var componentNameLabel: UILabel!
     

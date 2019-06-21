@@ -28,6 +28,7 @@
 		95FCFAD722BB8C6A00985E0D /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFAD622BB8C6A00985E0D /* ProfileViewController.swift */; };
 		95FCFAD922BBA0E800985E0D /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFAD822BBA0E800985E0D /* Profile.swift */; };
 		95FCFADC22BBA1EF00985E0D /* NetworkEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFADB22BBA1EF00985E0D /* NetworkEngine.swift */; };
+		95FCFADE22BBB94400985E0D /* NetworkRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95FCFADD22BBB94400985E0D /* NetworkRoutes.swift */; };
 		D0594FA8E0A2045D365CA15C /* Pods_Component_BankTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 591B7D16EE33A46D934B9EBD /* Pods_Component_BankTests.framework */; };
 		EF3BAD0316CF240A9BD7C169 /* Pods_Component_BankUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53ED5AE888CFF0AE41AAE636 /* Pods_Component_BankUITests.framework */; };
 /* End PBXBuildFile section */
@@ -83,6 +84,7 @@
 		95FCFAD622BB8C6A00985E0D /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		95FCFAD822BBA0E800985E0D /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		95FCFADB22BBA1EF00985E0D /* NetworkEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEngine.swift; sourceTree = "<group>"; };
+		95FCFADD22BBB94400985E0D /* NetworkRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRoutes.swift; sourceTree = "<group>"; };
 		EC6AC56B1313FA0C99DBFB33 /* Pods-Component BankTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Component BankTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Component BankTests/Pods-Component BankTests.release.xcconfig"; sourceTree = "<group>"; };
 		F8CB43BE16CA9A2675ACE027 /* Pods-Component BankUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Component BankUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Component BankUITests/Pods-Component BankUITests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -193,8 +195,8 @@
 			isa = PBXGroup;
 			children = (
 				95C6D161200224BB00CE6EB0 /* AppDelegate.swift */,
-				95C6D16C200224BC00CE6EB0 /* AuthenticationViewController.swift */,
 				95C6D162200224BB00CE6EB0 /* RegisterViewController.swift */,
+				95C6D16C200224BC00CE6EB0 /* AuthenticationViewController.swift */,
 				95FCFAD622BB8C6A00985E0D /* ProfileViewController.swift */,
 				95C6D166200224BB00CE6EB0 /* ComponentsViewController.swift */,
 			);
@@ -219,6 +221,7 @@
 			children = (
 				95FCFAD822BBA0E800985E0D /* Profile.swift */,
 				95FCFADB22BBA1EF00985E0D /* NetworkEngine.swift */,
+				95FCFADD22BBB94400985E0D /* NetworkRoutes.swift */,
 				95C6D169200224BC00CE6EB0 /* Constants.swift */,
 			);
 			path = Model;
@@ -549,6 +552,7 @@
 				95C6D17B200224BD00CE6EB0 /* AuthenticationViewController.swift in Sources */,
 				95C6D176200224BD00CE6EB0 /* InventoryTableViewCell.swift in Sources */,
 				95C6D171200224BD00CE6EB0 /* RegisterViewController.swift in Sources */,
+				95FCFADE22BBB94400985E0D /* NetworkRoutes.swift in Sources */,
 				95C6D177200224BD00CE6EB0 /* RippleEffect.swift in Sources */,
 				95FCFADC22BBA1EF00985E0D /* NetworkEngine.swift in Sources */,
 				95FCFAD722BB8C6A00985E0D /* ProfileViewController.swift in Sources */,

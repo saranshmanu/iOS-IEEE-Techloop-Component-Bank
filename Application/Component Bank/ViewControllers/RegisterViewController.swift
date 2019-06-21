@@ -15,26 +15,24 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var bottonConstraint: NSLayoutConstraint!
     
     @IBAction func register(_ sender: Any) {
-        loaderStart()
+        showLoader()
         if name.text! == "" || password.text! == "" || email.text! == "" || phone.text! == "" || registrationNum.text! == ""{
-            loaderStop()
+            hideLoader()
             AlertView.showAlert(title: "Failed!", message: "Fields Empty!", buttonLabel: "OK", viewController: self)
             return
         }
-        let URL =  Constants.authenticationURL + "register"
-        if isStringAnInt(string: phone.text!) {
-            NetworkEngine.Authentication.register(name: name.text!, registrationNumber: registrationNum.text!, email: email.text!, password: password.text!, phoneNumber: phone.text!, url: URL) { (success) in
-                if success {
-                    self.loaderStop()
-                    AlertView.showAlert(title: "Succcess!", message: "Wait for the admin to approve your request", buttonLabel: "OK", viewController: self)
-                } else {
-                    self.loaderStop()
-                    AlertView.showAlert(title: "Failed!", message: "Registration Failed", buttonLabel: "OK", viewController: self)
-                }
-            }
-        } else {
-            loaderStop()
+        if !isStringAnInt(string: phone.text!) {
+            hideLoader()
             AlertView.showAlert(title: "Failed!", message: "The phone number entered is not valid", buttonLabel: "OK", viewController: self)
+            return
+        }
+        NetworkEngine.Authentication.register(name: name.text!, registrationNumber: registrationNum.text!, email: email.text!, password: password.text!, phoneNumber: phone.text!) { (success) in
+            self.hideLoader()
+            if success {
+                AlertView.showAlert(title: "Succcess!", message: "Wait for the admin to approve your request", buttonLabel: "OK", viewController: self)
+            } else {
+                AlertView.showAlert(title: "Failed!", message: "Registration Failed", buttonLabel: "OK", viewController: self)
+            }
         }
     }
     
@@ -70,7 +68,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         return Int(string) != nil
     }
     
-    func loaderStop() {
+    func hideLoader() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
             self.loader.isHidden = true
@@ -79,7 +77,7 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    func loaderStart() {
+    func showLoader() {
         self.view.layoutIfNeeded()
         UIView.animate(withDuration: 0.2, animations: {
             self.loader.isHidden = false
@@ -88,21 +86,37 @@ class RegisterViewController: UIViewController, UITextFieldDelegate {
         })
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    func initTextFieldDelegates() {
         name.delegate = self
         email.delegate = self
         registrationNum.delegate = self
         phone.delegate = self
         password.delegate = self
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AuthenticationViewController.dismissKeyboard)))
+    }
+    
+    func initTextFields() {
         name.text = ""
         email.text = ""
         registrationNum.text = ""
         phone.text = ""
         password.text = ""
+    }
+    
+    func initTabGestureForKeyboardDismiss() {
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AuthenticationViewController.dismissKeyboard)))
+    }
+    
+    func initLoaderProperties() {
         loader.alpha = 0.0
         loader.isHidden = true
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initTextFieldDelegates()
+        initTextFields()
+        initTabGestureForKeyboardDismiss()
+        initLoaderProperties()
     }
     
     @objc func dismissKeyboard() {

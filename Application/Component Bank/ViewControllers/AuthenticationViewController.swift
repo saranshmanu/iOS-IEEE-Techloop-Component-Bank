@@ -21,16 +21,15 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginAction(_ sender: Any) {
         dismissKeyboard()
         loaderStart()
-        let URL = Constants.authenticationURL + "login"
-        let username:String = usernameTextField.text!
-        let password:String = passwordTextField.text!
-        NetworkEngine.Authentication.login(username: username, password: password, url: URL) { (success) in
+        let username:String = usernameTextField.text! as String
+        let password:String = passwordTextField.text! as String
+        print(username, password)
+        NetworkEngine.Authentication.login(username: username, password: password) { (success) in
+            self.loaderStop()
             if success {
-                self.loaderStop()
                 let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeViewController")
                 self.present(vc!, animated: true, completion: nil)
             } else {
-                self.loaderStop()
                 AlertView.showAlert(title: "Failed!", message: "Authentication Failed!", buttonLabel: "OK", viewController: self)
             }
         }
@@ -86,8 +85,8 @@ class AuthenticationViewController: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
         loader.alpha = 0.0
         loader.isHidden = true
-        usernameTextField.text = ""
-        passwordTextField.text = ""
+        usernameTextField.text = "saranshmanu@yahoo.co.in"
+        passwordTextField.text = "qwerty"
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(AuthenticationViewController.dismissKeyboard)))
     }
 
